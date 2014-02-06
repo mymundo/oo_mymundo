@@ -1,46 +1,58 @@
 from OpenOrange import *
+from PersonalTrans import *
 
-ParentMonedero = SuperClass("Monedero","Numerable",__file__)
+ParentMonedero = SuperClass("Monedero","Transaction",__file__)
 class Monedero(ParentMonedero):
 
-    def genPersonalTrans(self):
-        from PersonalTrans import *
-        for row in self.Detail:
-            ptrans = PersonalTrans()
-            ptrans.defaults()
-            ptrans.TransDate = row.Date
-            ptrans.TransTime = row.Time
-            ptrans.Type = ptrans.EXPENSE
-            ptrans.OriginType = 9001
-            ptrans.OriginNr = self.SerNr
-            from Wallet import Wallet
-            wal = Wallet.bring(self.Wallet)
-            if (wal):
-                ptrans.Person = wal.Owner
-            ptrans.Description = "Viaje en Subte - %s" %(row.Station)
+    def genPersonalTrans(self, revert=False):
+        res = True
+        if (not revert):
+            for row in self.Detail:
+                ptrans = PersonalTrans()
+                ptrans.defaults()
+                ptrans.TransDate = row.Date
+                ptrans.TransTime = row.Time
+                ptrans.Type = ptrans.EXPENSE
+                ptrans.OriginType = 9001
+                ptrans.OriginNr = self.SerNr
+                from Wallet import Wallet
+                wal = Wallet.bring(self.Wallet)
+                if (wal):
+                    ptrans.Person = wal.Owner
+                ptrans.Description = "Viaje en Subte - %s" %(row.Station)
+                crow = PersonalTransConceptRow()
+                crow.Concept = "TRANSP"
+                crow.pasteConcept(ptrans)
+                crow.Qty = 1
+                crow.Price = 1.10
+                crow.pastePrice(ptrans)
 
-            crow = PersonalTransConceptRow()
-            crow.Concept = "TRANSP"
-            crow.pasteConcept(ptrans)
-            crow.Qty = 1
-            crow.Price = 1.10
-            crow.pastePrice(ptrans)
+                ptrans.Concepts.append(crow)
 
-            ptrans.Concepts.append(crow)
+                prow = PersonalTransPaymentRow()
+                prow.Wallet = self.Wallet
+                prow.pasteWallet(ptrans)
+                prow.Amount = 1.10
 
-            prow = PersonalTransPaymentRow()
-            prow.Wallet = self.Wallet
-            prow.pasteWallet(ptrans)
-            prow.Amount = 1.10
+                ptrans.Payments.append(prow)
+                ptrans.Status = 1
+                ptrans.sumUp()
+                res = ptrans.save()
+                if (not res): return res
+        else:
+            pquery = Query()
+            pquery.sql  = "SELECT PT.SerNr FROM PersonalTrans PT "
+            pquery.sql += "WHERE?AND PT.OriginType = i|%s| AND PT.OriginNr = i|%s| "%(9001,self.SerNr)
 
-            ptrans.Payments.append(prow)
-            ptrans.Status = 1
-            ptrans.sumUp()
-            res = ptrans.save()
-            if (res):
-                row.Processed = True
-                commit()
-        return True
+            if (pquery.open()):
+                for prow in pquery:
+                    ptrans = PersonalTrans.bring(prow.SerNr)
+                    if (ptrans):
+                        res = ptrans.forceDelete()
+                        if (not res): return res
+                    else:
+                        message("No se encuentra registro")
+        return res
 
     def checkDetailRows(self):
         for row in self.Detail:
@@ -77,6 +89,21 @@ class Monedero(ParentMonedero):
         res = self.checkDetailRows()
         if (not res): return res
         return res
+
+    def beforeInsert(self):
+        res = ParentMonedero.beforeInsert(self)
+        if not res: return res
+        res = self.genPersonalTrans(self.unconfirming())
+        if (not res): return res
+        return res
+
+    def beforeUpdate(self):
+        res = ParentMonedero.beforeUpdate(self)
+        if (not res): return res
+        res = self.genPersonalTrans(self.unconfirming())
+        if (not res): return res
+        return res
+    
 
 ParentMonederoDetailRow = SuperClass("MonederoDetailRow","Record",__file__)
 class MonederoDetailRow(ParentMonederoDetailRow):

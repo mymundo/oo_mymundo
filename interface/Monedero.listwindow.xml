@@ -2,7 +2,12 @@
 <listwindow name="MonederoListWindow" title="Monedero">
     <matrix name="Monedero" recordname="Monedero" windowname="MonederoWindow">
         <matrixcolumn label="Number" fieldname="SerNr" editor="integer" />
+        <matrixcolumn label="Approved" fieldname="Status" editor="combobox" width="40">
+            <combooption label="No" value="0"/>
+            <combooption label="Yes" value="1"/>
+        </matrixcolumn>
         <matrixcolumn label="Date" fieldname="TransDate" editor="date" />
         <matrixcolumn label="Comment" fieldname="Comment" editor="text" width="200"/>
+        <matrixcolumn label="Wallet" fieldname="Wallet" editor="text" />
     </matrix>
 </listwindow>

@@ -1,0 +1,79 @@
+SubteStation
+Code
+
+A Alberti
+A Pasco
+A Plaza Miserere
+A Congreso
+A Plaza de Mayo
+A Sáenz Peña
+A Piedras
+A Lima
+A Perú
+A Río de Janeiro
+A Loria
+A Castro Barros
+A Acoyte
+A Primera Junta
+A Puan
+A Carabobo
+B Ángel Gallardo
+B Carlos Gardel
+B Pasteur
+B Pueyrredón
+B Callao
+B Federico Lacroze
+B Dorrego
+B Malabia
+B Medrano
+B Uruguay
+B Florida
+B Leandro N. Alem
+B Carlos Pellegrini
+B Los Incas/Parque Chas
+B Tronador/Villa Ortúzar
+C San Juan
+C Constitución
+C Independencia
+C Moreno
+C Avenida de Mayo
+C Diagonal Norte
+C General San Martín
+C Retiro
+C Lavalle
+D Tribunales
+D Catedral
+D 9 de Julio
+D Pueyrredón
+D Plaza Italia
+D Scalabrini Ortiz
+D Bulnes
+D Palermo
+D Callao
+D Agüero
+D Facultad de Medicina
+D Ministro Carranza
+D José Hernández
+D Olleros
+D Juramento
+D Congreso de Tucumán
+E Boedo
+E Pichincha
+E General Urquiza
+E Jujuy
+E Entre Ríos
+E Avenida La Plata
+E San José
+E Independencia
+E Belgrano
+E Bolivar
+E José María Moreno
+E Medalla Milagrosa
+E Varela
+E Emilio Mitre
+E Plaza de los Virreyes
+H Venezuela
+H Once
+H Inclán
+H Caseros
+H Humberto I

@@ -135,7 +135,7 @@ class WalletStatus(Report):
             from PersonalTrans import PersonalTrans, PersonalTransPaymentRow
             ptrans = PersonalTrans()
             ptrans.defaults()
-            ptrans.TransDate = record.FromDate
+            ptrans.TransDate = today()
             ptrans.Person = wall.Owner
             paymentrow = PersonalTransPaymentRow()
             paymentrow.Wallet = wall.Code

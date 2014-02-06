@@ -3,9 +3,10 @@
     <line>
         <integer label="Number" fieldname="SerNr"/>
         <date label="Date" fieldname="TransDate"/>
+        <time label="Time" fieldname="TransTime"/>
     </line>
-    <text label="Comment" fieldname="Comment"/>
     <text label="Wallet" fieldname="Wallet" pastewindow="WalletPasteWindow"/>
+    <text label="Comment" fieldname="Comment"/>
     <tabs name="Detail">
         <tabpage label="Detail" name="DetailPage">
             <matrix fieldname="Detail" name="DetailMatrix" >
@@ -14,14 +15,13 @@
                 <matrixcolumn label="Station" fieldname="Station" editor="text" width="150" pastewindow="SubteStationPasteWindow"/>
             </matrix>
         </tabpage>
-        <tabpage label="Processed" name="ProcessedPage">
-            <matrix fieldname="Detail" name="DetailMatrix" >
-                <matrixcolumn label="Date" fieldname="Date" editor="date"/>
-                <matrixcolumn label="Time" fieldname="Time" editor="time" />
-                <matrixcolumn label="Station" fieldname="Station" editor="text" width="150" pastewindow="SubteStationPasteWindow"/>
-                <matrixcolumn label="Processed" fieldname="Processed" editor="checkbox" width="60"/>
-            </matrix>
+        <tabpage label="Transaction" name="TransactionPage">
+            <text label="Computer" fieldname="Computer" pastewindow="ComputerPasteWindow"/>
+            <text label="User" fieldname="User" pastewindow="UserPasteWindow"/>
+            <text label="Office" fieldname="Office" pastewindow="OfficePasteWindow"/>
+            <text label="Department" fieldname="Department" pastewindow="DepartmentPasteWindow"/>
+            <text label="Form Type" fieldname="FormType" pastewindow="FormTypeDefPasteWindow" width="060"/>
         </tabpage>
     </tabs>
-    <action label="Generate Personal Transaction" methodname="genPersonalTrans"/>
+    <checkbox label="Approved" fieldname="Status"/>
 </window>

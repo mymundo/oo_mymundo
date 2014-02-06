@@ -1,7 +1,7 @@
 from OpenOrange import *
 from GlobalTools import *
 
-ParentMonederoWindow = SuperClass("MonederoWindow","NumerableWindow",__file__)
+ParentMonederoWindow = SuperClass("MonederoWindow","TransactionWindow",__file__)
 class MonederoWindow(ParentMonederoWindow):
     
     def afterEdit(self, fname):
