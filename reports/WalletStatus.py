@@ -14,6 +14,8 @@ class WalletStatus(Report):
             delattr(self,"isFirstLine")
         self.printReportTitle("Wallet Status")
 
+        
+        #SALDO  INICIAL
         tquery = Query()
         tquery.sql  = "SELECT * FROM ( "
         tquery.sql += "SELECT NULL TransDate, NULL TransTime, NULL SerNr, PT.Type, PT.Concept, 'SALDO INICIAL' TransDescription, "
@@ -27,18 +29,20 @@ class WalletStatus(Report):
         tquery.sql += " WHEN i|0| THEN 0.0 "
         tquery.sql += " WHEN i|1| THEN PTPr.Amount "
         tquery.sql += " WHEN i|2| THEN PTPr.Amount "
-        tquery.sql += "END)) OutAmount "
+        tquery.sql += "END)) OutAmount, "
+        tquery.sql += "PT.Status "
         tquery.sql += "FROM PersonalTransPaymentRow PTPr " 
         tquery.sql += "INNER JOIN PersonalTrans PT ON PTPr.masterId = PT.internalId " 
         tquery.sql += "INNER JOIN Wallet W ON PTPr.Wallet = W.Code " 
         tquery.sql += "WHERE?AND (PT.TransDate < d|%s| ) "  %(record.FromDate)
-        tquery.sql += "WHERE?AND (PT.Status = i|1|) "
+        #tquery.sql += "WHERE?AND (PT.Status = i|1|) "
         if (record.Wallet):
             tquery.sql += "WHERE?AND PTPr.Wallet = s|%s| " %(record.Wallet)
         if (record.Owner):
             tquery.sql += "WHERE?AND W.Owner = s|%s| " %(record.Owner)
         tquery.sql += "GROUP BY PTPr.Wallet " 
         tquery.sql += " UNION ALL  "
+        #MOVIMIENTOS DEL PERIODO
         tquery.sql += "SELECT PT.TransDate, PT.TransTime, PT.SerNr, PT.Type, PT.Concept, PT.Description TransDescription, "
         tquery.sql += "PTPr.Wallet, PTPr.Description, "
         tquery.sql += "(CASE PT.Type "
@@ -50,12 +54,13 @@ class WalletStatus(Report):
         tquery.sql += " WHEN i|0| THEN 0.0 "
         tquery.sql += " WHEN i|1| THEN PTPr.Amount "
         tquery.sql += " WHEN i|2| THEN PTPr.Amount "
-        tquery.sql += "END ) OutAmount "
+        tquery.sql += "END ) OutAmount, "
+        tquery.sql += "PT.Status "
         tquery.sql += "FROM PersonalTransPaymentRow PTPr " 
         tquery.sql += "INNER JOIN PersonalTrans PT ON PTPr.masterId = PT.internalId " 
         tquery.sql += "INNER JOIN Wallet W ON PTPr.Wallet = W.Code " 
         tquery.sql += "WHERE?AND (PT.TransDate BETWEEN d|%s| AND d|%s|) "  %(record.FromDate,record.ToDate)
-        tquery.sql += "WHERE?AND (PT.Status = i|1|) "
+        #tquery.sql += "WHERE?AND (PT.Status = i|1|) "
         if (record.Wallet):
             tquery.sql += "WHERE?AND PTPr.Wallet = s|%s| " %(record.Wallet)
         if (record.Owner):
@@ -94,8 +99,9 @@ class WalletStatus(Report):
                     self.addValue(tline.TransDate.strftime("%d/%m/%Y"))
                 else:
                     self.addValue("")
+                statuscolor = [self.ErrorBackColor,self.DefaultForeColor]
                 self.addValue(tline.TransTime)
-                self.addValue(tline.SerNr,Window="PersonalTransWindow",FieldName="SerNr")
+                self.addValue(tline.SerNr,Window="PersonalTransWindow",FieldName="SerNr",Color=statuscolor[tline.Status])
                 self.addValue(tline.TransDescription)
                 self.addValue(tline.InAmount)
                 self.addValue(tline.OutAmount)
