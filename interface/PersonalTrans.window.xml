@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<window name="PersonalTransWindow" recordname="PersonalTrans" title="Personal Transaction">
+    <line>
+        <column>
+            <line>
+                <integer label="Number" fieldname="SerNr" pastewindow="SerialNrPasteWindow"/>
+                <date label="Date" fieldname="TransDate"/>
+                <time label="Time" fieldname="TransTime"/>
+            </line>
+            <line>
+                <text label="Supplier" fieldname="SupCode" pastewindow="SupplierPasteWindow" width="92"/>
+                <text label="Name" fieldname="SupName"/>
+            </line>
+            <text label="Person" fieldname="Person" pastewindow="PersonPasteWindow"/>
+            <text label="Description" fieldname="Description"/>
+        </column>
+        <column>
+            <radiobutton label="Type" fieldname="Type" >
+                <radiooption label="Income" value="0"/>
+                <radiooption label="Expense" value="1"/>
+                <radiooption label="Transference" value="2"/>
+            </radiobutton>
+        </column>
+    </line>
+    <tabs>
+        <tabpage label="Concepts" name="ConceptsPage">
+            <matrix fieldname="Concepts" name="ConceptMatrix" >
+                <matrixcolumn label="Concept" fieldname="Concept" editor="text" pastewindow="ConceptPasteWindow"/>
+                <matrixcolumn label="Item" fieldname="ArtCode" editor="text" pastewindow="ItemPasteWindow" />
+                <matrixcolumn label="Description" fieldname="Description" editor="text" width="200"/>
+                <matrixcolumn label="Qty" fieldname="Qty" editor="value" />
+                <matrixcolumn label="Price" fieldname="Price" editor="value" width="080"/>
+                <matrixcolumn label="Total" fieldname="RowTotal" editor="value" width="080"/>
+            </matrix>
+        </tabpage>
+        <tabpage label="Payments" name="PaymentPage">
+            <matrix fieldname="Payments" name="PaymentMatrix" >
+                <matrixcolumn label="Wallet" fieldname="Wallet" editor="text" pastewindow="WalletPasteWindow"/>
+                <matrixcolumn label="Description" fieldname="Description" editor="text" width="200"/>
+                <matrixcolumn label="Amount" fieldname="Amount" editor="value" width="080"/>
+            </matrix>
+            <text label="Transference To" fieldname="TransferTo" pastewindow="WalletPasteWindow"/>
+        </tabpage>
+        <tabpage label="Other" name="OtherPage">
+            <value label="Base Rate" fieldname="BaseRate"/>
+            <value label="Currency Rate" fieldname="CurrencyRate"/>
+            <integer label="Nr." fieldname="OriginNr" readonly="True"/>
+            <combobox label="Type" fieldname="OriginType" width="150" readonly="True">
+                <combooption label="Nothing" value="11"/>
+                <combooption label="Personal Transaction" value="9000"/>
+            </combobox>
+        </tabpage>
+    </tabs>
+    <line>
+        <column>
+            <checkbox label="Approved" fieldname="Status"/>
+        </column>
+        <column>
+            <text label="Currency" fieldname="Currency" pastewindow="CurrencyPasteWindow"/>
+        </column>
+        <column>
+            <value label="Total Concepts" fieldname="TotalConcepts" width="100" readonly="True"/>
+            <value label="Total Payments" fieldname="TotalPayments" width="100" readonly="True"/>
+        </column>
+    </line>
+</window>

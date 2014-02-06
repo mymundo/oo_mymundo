@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<listwindow name="ConceptPasteWindow" title="Concept">
+    <matrix name="Concept" recordname="Concept" windowname="ConceptWindow" pastefieldname="Code">
+        <matrixcolumn label="Code" fieldname="Code" editor="text" />
+        <matrixcolumn label="Description" fieldname="Description" editor="text" width="200"/>
+        <matrixcolumn label="Type" fieldname="Type" editor="combobox" width="60">
+            <combooption label="Income" value="0"/>
+            <combooption label="Expense" value="1"/>
+        </matrixcolumn>
+        <matrixcolumn label="Account" fieldname="Account" editor="text" />
+    </matrix>
+</listwindow>

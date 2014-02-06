@@ -1,0 +1,10 @@
+<detailrecord name="PersonalTransConceptRow" tablename="PersonalTransConceptRow">
+    <field name="Concept" type="string" linkto="Concept"/>
+    <field name="ArtCode" type="string" linkto="Item"/>
+    <field name="Description" type="string" length="100"/>
+    <field name="Qty" type="value"/>
+    <field name="Price" type="value"/>
+    <field name="RowTotal" type="value"/>
+    <field name="RowNet" type="value"/>
+    <field name="VATCode" type="string" linkto="VATCode"/>
+</detailrecord>

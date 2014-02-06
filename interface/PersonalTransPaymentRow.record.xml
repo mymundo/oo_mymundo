@@ -1,0 +1,5 @@
+<detailrecord name="PersonalTransPaymentRow" tablename="PersonalTransPaymentRow">
+    <field name="Wallet" type="string" linkto="Wallet"/>
+    <field name="Description" type="string" length="100"/>
+    <field name="Amount" type="value"/>
+</detailrecord>

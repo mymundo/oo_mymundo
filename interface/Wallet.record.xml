@@ -1,0 +1,9 @@
+<record name="Wallet" tablename="Wallet" inherits="Master">
+    <field name="Code" type="string" length="10"/>
+    <field name="Description" type="string" length="60"/>
+    <field name="Currency" type="string" linkto="Currency"/>
+    <field name="Type" type="integer"/>
+    <field name="Owner" type="string" linkto="Person"/>
+    <field name="CardNr" type="string" length="30"/>
+    <field name="Account" type="string" linkto="Account"/>
+</record>

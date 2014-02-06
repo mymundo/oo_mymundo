@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<window name="ConceptWindow" recordname="Concept" title="Concept">
+    <text label="Code" fieldname="Code"/>
+    <text label="Description" fieldname="Description"/>
+    <radiobutton label="Type" fieldname="Type">
+        <radiooption label="Income" value="0"/>
+        <radiooption label="Expense" value="1"/>
+        <radiooption label="Transference" value="2"/>
+    </radiobutton>
+    <text label="Account" fieldname="Account" pastewindow="AccountPasteWindow"/>
+    <!-- <checkbox label="Generic" fieldname="IsGeneric"/> -->
+</window>

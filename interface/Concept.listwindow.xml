@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<listwindow name="ConceptListWindow" title="Concept">
+    <matrix name="Concept" recordname="Concept" windowname="ConceptWindow">
+        <matrixcolumn label="Code" fieldname="Code" editor="text" />
+        <matrixcolumn label="Description" fieldname="Description" editor="text" width="200"/>
+        <matrixcolumn label="Type" fieldname="Type" editor="combobox" width="60">
+            <combooption label="Income" value="0"/>
+            <combooption label="Expense" value="1"/>
+            <combooption label="Transference" value="2"/>            
+        </matrixcolumn>
+        <matrixcolumn label="Account" fieldname="Account" editor="text" />
+        <!-- <matrixcolumn label="Generic" fieldname="IsGeneric" editor="checkbox" width="60"/> -->
+    </matrix>
+</listwindow>

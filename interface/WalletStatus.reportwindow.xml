@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<reportuserinput>
+    <reportrecord>
+        <field name="FromDate" type="date"/>
+        <field name="ToDate" type="date"/>
+        <field name="Wallet" type="string" length="10"/>
+        <field name="Owner" type="string" length="10"/>
+    </reportrecord>
+    <reportwindow name="WalletStatusWindow" title="Wallet Status">
+        <period fromfieldname="FromDate" tofieldname="ToDate" label="Period"/>
+        <text label="Wallet" fieldname="Wallet" pastewindow="WalletPasteWindow"/>
+        <text label="Owner" fieldname="Owner" pastewindow="PersonPasteWindow"/>
+    </reportwindow>
+</reportuserinput>

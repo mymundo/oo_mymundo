@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<routineuserinput>
+    <routinerecord>
+        <field name="Wallet" type="string" length="10"/>
+        <field name="Concept" type="string" length="10"/>
+        <field name="SupCode" type="string" length="20"/>
+    </routinerecord>
+    <routinewindow name="ImportMonederoMovementsRoutineWindow" title="Import Monedero Movements">
+        <text label="Wallet" fieldname="Wallet" pastewindow="WalletPasteWindow"/>
+        <text label="Concept" fieldname="Concept" pastewindow="ConceptPasteWindow"/>
+        <text label="Supplier" fieldname="SupCode" pastewindow="SupplierPasteWindow"/>
+    </routinewindow>
+</routineuserinput>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<window name="WalletWindow" recordname="Wallet" title="Wallet">
+    <text label="Code" fieldname="Code"/>
+    <text label="Description" fieldname="Description"/>
+    <text label="Currency" fieldname="Currency" pastewindow="CurrencyPasteWindow"/>
+    <radiobutton label="Type" fieldname="Type">
+        <radiooption label="Money Wallet" value="0"/>
+        <radiooption label="Debit Card" value="1"/>
+    </radiobutton>
+    <text label="Card Number" fieldname="CardNr"/>
+    <text label="Account" fieldname="Account" pastewindow="AccountPasteWindow"/>
+    <text label="Owner" fieldname="Owner" pastewindow="PersonPasteWindow"/>
+</window>

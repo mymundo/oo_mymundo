@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<listwindow name="WalletListWindow" title="Wallet">
+    <matrix name="Wallet" recordname="Wallet" windowname="WalletWindow">
+        <matrixcolumn label="Code" fieldname="Code" editor="text" />
+        <matrixcolumn label="Description" fieldname="Description" editor="text" width="200"/>
+        <matrixcolumn label="Owner" fieldname="Owner" editor="text"/>
+        <matrixcolumn label="Account" fieldname="Account" editor="text"/>
+        <matrixcolumn label="Currency" fieldname="Currency" editor="text"/>
+    </matrix>
+</listwindow>

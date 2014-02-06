@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<listwindow name="PersonalTransListWindow" title="Personal Transaction">
+    <matrix name="PersonalTrans" recordname="PersonalTrans" windowname="PersonalTransWindow">
+        <matrixcolumn label="Number" fieldname="SerNr" editor="integer" />
+        <matrixcolumn label="Date" fieldname="TransDate" editor="date" />
+        <matrixcolumn label="Time" fieldname="TransTime" editor="time"/>
+        <matrixcolumn label="Approved" fieldname="Status" editor="combobox" width="40">
+            <combooption label="No" value="0"/>
+            <combooption label="Yes" value="1"/>
+        </matrixcolumn>
+        <matrixcolumn label="Person" fieldname="Person" editor="text" />
+        <matrixcolumn label="Description" fieldname="Description" editor="text" width="200"/>
+        <matrixcolumn label="Total" fieldname="TotalConcepts" editor="value" width="150"/>
+    </matrix>
+</listwindow>
