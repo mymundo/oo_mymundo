@@ -4,6 +4,9 @@ from GlobalTools import *
 
 ParentPersonalTrans = SuperClass("PersonalTrans","FinancialTrans",__file__)
 class PersonalTrans(ParentPersonalTrans):
+    INCOME = 0
+    EXPENSE = 1
+    TRANSFERENCE = 2
 
     def defaults(self):
         ParentPersonalTrans.defaults(self)

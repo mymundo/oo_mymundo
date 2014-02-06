@@ -1,0 +1,7 @@
+<record name="Monedero" tablename="Monedero" inherits="Numerable">
+    <field name="SerNr" type="integer"/>
+    <field name="TransDate" type="date"/>
+    <field name="Comment" type="string" length="100"/>
+    <field name="Wallet" type="string" linkto="Wallet"/>
+    <field name="Detail" type="detail" recordname="MonederoDetailRow"/>
+</record>

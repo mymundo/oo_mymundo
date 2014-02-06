@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<listwindow name="MonederoListWindow" title="Monedero">
+    <matrix name="Monedero" recordname="Monedero" windowname="MonederoWindow">
+        <matrixcolumn label="Number" fieldname="SerNr" editor="integer" />
+        <matrixcolumn label="Date" fieldname="TransDate" editor="date" />
+        <matrixcolumn label="Comment" fieldname="Comment" editor="text" width="200"/>
+    </matrix>
+</listwindow>

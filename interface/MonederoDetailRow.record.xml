@@ -1,0 +1,6 @@
+<detailrecord name="MonederoDetailRow" tablename="MonederoDetailRow">
+    <field name="Date" type="date"/>
+    <field name="Time" type="time"/>
+    <field name="Station" type="string" linkto="SubteStation"/>
+    <field name="Processed" type="boolean"/>
+</detailrecord>

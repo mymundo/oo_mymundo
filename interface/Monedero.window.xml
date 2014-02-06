@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> <!-- Oct/09 - MS -->
+<window name="MonederoWindow" recordname="Monedero" title="Monedero">
+    <line>
+        <integer label="Number" fieldname="SerNr"/>
+        <date label="Date" fieldname="TransDate"/>
+    </line>
+    <text label="Comment" fieldname="Comment"/>
+    <text label="Wallet" fieldname="Wallet" pastewindow="WalletPasteWindow"/>
+    <tabs name="Detail">
+        <tabpage label="Detail" name="DetailPage">
+            <matrix fieldname="Detail" name="DetailMatrix" >
+                <matrixcolumn label="Date" fieldname="Date" editor="date"/>
+                <matrixcolumn label="Time" fieldname="Time" editor="time" />
+                <matrixcolumn label="Station" fieldname="Station" editor="text" width="150" pastewindow="SubteStationPasteWindow"/>
+            </matrix>
+        </tabpage>
+        <tabpage label="Processed" name="ProcessedPage">
+            <matrix fieldname="Detail" name="DetailMatrix" >
+                <matrixcolumn label="Date" fieldname="Date" editor="date"/>
+                <matrixcolumn label="Time" fieldname="Time" editor="time" />
+                <matrixcolumn label="Station" fieldname="Station" editor="text" width="150" pastewindow="SubteStationPasteWindow"/>
+                <matrixcolumn label="Processed" fieldname="Processed" editor="checkbox" width="60"/>
+            </matrix>
+        </tabpage>
+    </tabs>
+    <action label="Generate Personal Transaction" methodname="genPersonalTrans"/>
+</window>

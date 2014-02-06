@@ -1,0 +1,16 @@
+<routineuserinput>
+    <routinerecord>
+        <field name="Filename" type="string" length="200"/>
+        <field name="Wallet" type="string" length="10"/>
+        <field name="FromDate" type="date"/>
+        <field name="ToDate" type="date"/>
+    </routinerecord>
+    <routinewindow name="BankStatementImportRoutineWindow" title="Bank Statement Import">
+        <period  label="Period" fromfieldname="FromDate" tofieldname="ToDate"/>
+        <line>
+            <text label="Filename" fieldname="Filename" width="300"/>
+            <pushbutton label="..." name="selectSourceFile" height="20" />
+        </line>
+        <text label="Wallet" fieldname="Wallet" pastewindow="WalletPasteWindow"/>
+    </routinewindow>
+</routineuserinput>

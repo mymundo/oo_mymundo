@@ -3,6 +3,7 @@
     <field name="Type" type="integer"/>
     <!-- <field name="Concept" type="string" linkto="Concept"/> -->
     <field name="Description" type="string" length="100"/>
+    <field name="Reference" type="string" length="100"/>
     <field name="Person" type="string" linkto="Person"/>
     <field name="SupCode" type="string" linkto="Supplier"/>
     <field name="SupName" type="string" length="60"/>

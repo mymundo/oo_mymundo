@@ -13,6 +13,7 @@
             </line>
             <text label="Person" fieldname="Person" pastewindow="PersonPasteWindow"/>
             <text label="Description" fieldname="Description"/>
+            <text label="Reference" fieldname="Reference"/>
         </column>
         <column>
             <radiobutton label="Type" fieldname="Type" >

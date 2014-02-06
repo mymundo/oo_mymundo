@@ -5,11 +5,14 @@
         <recordentry label="Wallet" name="WalletListWindow"  button="true"/>
         <recordentry label="Personal Transaction" name="PersonalTransListWindow"  button="true"/>
         <recordentry label="Person" name="PersonListWindow" />
+        <recordentry label="Subte Station" name="SubteStationListWindow" />
+        <recordentry label="Monedero" name="MonederoListWindow" />
     </recordentries>
     <reportentries >
         <reportentry label="Wallet Status" name="WalletStatus"/>
     </reportentries>
     <routineentries >
         <routineentry label="Import Monedero Movements" name="ImportMonederoMovements" />
+        <routineentry label="Bank Statement Import" name="BankStatementImport" />
     </routineentries>
 </module>

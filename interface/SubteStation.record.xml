@@ -1,0 +1,3 @@
+<record name="SubteStation" tablename="SubteStation" inherits="SimpleMaster">
+    <field name="Code" type="string" length="30"/>
+</record>
