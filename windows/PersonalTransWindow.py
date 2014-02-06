@@ -83,8 +83,6 @@ class PersonalTransWindow(ParentPersonalTransWindow):
                             commit()
                         row.ArtCode = icode
                         row.pasteArtCode(record)
-
-
         elif (fname == "Payments"):
             row = record.Payments[rownr]
             if (rfname in ("Amount")):
@@ -123,3 +121,13 @@ class PersonalTransWindow(ParentPersonalTransWindow):
         ParentPersonalTransWindow.afterDeleteRow(self, dname, rownr)
         if (dname in ("Concepts","Payments")):
             self.getRecord().sumUp()
+
+    def balance(self):
+        record = self.getRecord()
+        mname = self.currentMatrixName()
+        if (mname == "PaymentMatrix"):
+            for row in record.Payments:
+                if (not row.Amount):
+                    row.Amount = record.TotalConcepts
+                    break
+        record.sumUp()

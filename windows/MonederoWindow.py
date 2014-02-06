@@ -18,3 +18,15 @@ class MonederoWindow(ParentMonederoWindow):
             if (res):
                 commit()
                 record.refresh()
+
+    def activateNextCell(self, matrixname, row, col):
+        columns = self.getMatrixColumns(matrixname)
+        if matrixname == "DetailMatrix":
+            if columns[col] == "Station": # To Next Row
+                col = 0
+                row += 1
+            else:
+                row,col = getNextCol(columns,row,col,"")
+        else:
+            row,col = getNextCol(columns,row,col,"")
+        return (row,col)
